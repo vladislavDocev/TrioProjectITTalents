@@ -1,6 +1,8 @@
 package magics;
 
-public abstract class Magic {
+import champions.Champion;
+
+public abstract class Magic implements IMagic {
 	
 	public enum MagicTypes{
 					POWERSHIELD, HEAL, RENEW, PLAGUE, 
@@ -10,6 +12,7 @@ public abstract class Magic {
 					}
 	
 	private final MagicTypes type;
+	private Champion target;
 	private final int costEnergy;
 	
 	public Magic(MagicTypes type) {
@@ -17,5 +20,8 @@ public abstract class Magic {
 		this.costEnergy = 10;
 	}
 	
-	
+	@Override
+	public MagicTypes getType() {
+		return this.type;
+	}
 }

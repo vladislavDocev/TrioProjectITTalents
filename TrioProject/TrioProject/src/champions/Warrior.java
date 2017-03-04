@@ -1,6 +1,7 @@
 package champions;
 
 import magics.HeroicStrike;
+import magics.IMagic;
 import magics.Intervene;
 import magics.ShieldBash;
 import magics.ShieldBlock;
@@ -14,6 +15,12 @@ public class Warrior extends Champion{
 		magics.add(new HeroicStrike());
 		magics.add(new Intervene());
 		magics.add(new ShieldBash());
+	}
+
+	@Override
+	void castMagic(IMagic magic, Champion target) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
