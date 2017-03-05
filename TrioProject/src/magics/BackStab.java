@@ -4,6 +4,9 @@ import champions.Champion;
 
 public class BackStab extends Magic implements IRogueMagic, IEnemySpells {
 
+	public static final int CRIT_MOD = 2;
+	public static final int BACKSTAB_DEFAULT_DMG = 60;
+	
 	public BackStab() {
 		super(MagicTypes.BACKSTAB);
 		
@@ -11,8 +14,9 @@ public class BackStab extends Magic implements IRogueMagic, IEnemySpells {
 
 	@Override
 	public void affect(Champion target) {
-		// TODO Auto-generated method stub
-		
+		if(target != null) {
+			target.reduceHP(BACKSTAB_DEFAULT_DMG * CRIT_MOD);
+		}
 	}
 
 }

@@ -4,15 +4,17 @@ import champions.Champion;
 
 public class Intervene extends Magic implements IWarriorMagic, IAllySpells{
 
+	public static final int INTERVENE_BASE_AMAOUNT = 40;
+	
 	public Intervene() {
 		super(MagicTypes.INTERVENE);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void affect(Champion target) {
-		// TODO Auto-generated method stub
-		
+		if(target != null) {
+			target.getShielded(INTERVENE_BASE_AMAOUNT);
+		}
 	}
 
 

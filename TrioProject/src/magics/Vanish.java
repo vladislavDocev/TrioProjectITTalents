@@ -10,8 +10,9 @@ public class Vanish extends Magic implements IRogueMagic, ISelfCastSpells{
 
 	@Override
 	public void affect(Champion target) {
-		// TODO Auto-generated method stub
-		
+		if(target != null) {
+			target.becomeUntargettable();
+		}
 	}
 
 }

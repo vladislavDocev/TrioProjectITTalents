@@ -21,6 +21,7 @@ public abstract class Champion {
 	protected HashSet<IMagic> magics;
 	protected Champion enemy;
 	protected Champion ally;
+	public boolean isUntargetable;
 	public boolean invulnurability;
 	public boolean isCrowControlled;
 	private static int MAX_HEALTH;
@@ -42,6 +43,7 @@ public abstract class Champion {
 		}
 		this.invulnurability = false;
 		this.isCrowControlled = false;
+		this.isUntargetable = false;
 		this.magics = new HashSet<>();
 	}
 
@@ -112,5 +114,9 @@ public abstract class Champion {
 
 	public void getShielded(int shield) {
 		this.health += shield;
+	}
+
+	public void becomeUntargettable() {
+		this.isUntargetable = true;
 	}
 }

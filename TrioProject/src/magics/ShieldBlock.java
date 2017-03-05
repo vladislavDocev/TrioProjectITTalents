@@ -4,6 +4,8 @@ import champions.Champion;
 
 public class ShieldBlock extends Magic implements IWarriorMagic, ISelfCastSpells{
 
+	private static final int SHIELDBLOCK_BASE_AMOUNT = 35;
+
 	public ShieldBlock() {
 		super(MagicTypes.SHIELDBLOCK);
 		
@@ -11,8 +13,9 @@ public class ShieldBlock extends Magic implements IWarriorMagic, ISelfCastSpells
 
 	@Override
 	public void affect(Champion target) {
-		// TODO Auto-generated method stub
-		
+		if(target != null) {
+			target.getShielded(SHIELDBLOCK_BASE_AMOUNT);
+		}
 	}
 
 }
