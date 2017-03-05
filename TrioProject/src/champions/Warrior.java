@@ -11,9 +11,14 @@ public class Warrior extends Champion{
 	public Warrior(int health, int energy, int dmg, int armor) {
 		super(ChampionTypes.WARRIOR, health, energy, dmg, armor);
 		
-		magics.add(new ShieldBlock());
-		magics.add(new HeroicStrike());
-		magics.add(new Intervene());
-		magics.add(new ShieldBash());
+		ShieldBash sb = new ShieldBash();
+		HeroicStrike hs = new HeroicStrike();
+		Intervene i = new Intervene();
+		ShieldBlock sbl = new ShieldBlock();
+		
+		magics.put(sb.getType(), sb);
+		magics.put(hs.getType(), hs);
+		magics.put(i.getType(), i);
+		magics.put(sbl.getType(), sbl);
 	}
 }

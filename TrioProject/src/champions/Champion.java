@@ -1,11 +1,13 @@
 package champions;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import magics.IAllySpells;
 import magics.IEnemySpells;
 import magics.IMagic;
 import magics.ISelfCastSpells;
+import magics.Magic.MagicTypes;
 
 public abstract class Champion {
 
@@ -18,18 +20,18 @@ public abstract class Champion {
 	private int energy;
 	private int dmg;
 	private int armor;
-	protected HashSet<IMagic> magics;
+	protected HashMap<MagicTypes, IMagic> magics;
 	protected Champion enemy;
 	protected Champion ally;
-	public boolean isUntargetable;
-	public boolean invulnurability;
-	public boolean isCrowControlled;
-	private static int MAX_HEALTH;
+	private boolean isUntargetable;
+	private boolean invulnurability;
+	private boolean isCrowControlled;
+	private int maxHP;
 
 	public Champion(ChampionTypes type, int health, int energy, int dmg, int armor) {
 		this.type = type;
 		if (health > 0) {
-			MAX_HEALTH = health;
+			maxHP = health;
 			this.health = health;
 		}
 		if (energy > 0) {
@@ -44,16 +46,16 @@ public abstract class Champion {
 		this.invulnurability = false;
 		this.isCrowControlled = false;
 		this.isUntargetable = false;
-		this.magics = new HashSet<>();
+		this.magics = new HashMap<>();
 	}
 
 	void attack(Champion ch) {
 		ch.health -= this.dmg;
 	}
 
-	 void castMagic(IMagic magic, Champion target) {
+	public void castMagic(IMagic magic, Champion target) {
 		 if (!this.isCrowControlled) {
-				if (this.magics.contains(magic)) {
+				if (this.magics.containsKey(magic.getType())) {
 					if (target != null) {
 						if (target.equals(this.enemy)) {
 							if (magic instanceof IEnemySpells) {
@@ -85,13 +87,13 @@ public abstract class Champion {
 			}
 	 }
 	 
-	 void targetEnemy(Champion champion) {
+	public void targetEnemy(Champion champion) {
 		 if(champion != null) {
 			 this.enemy = champion;
 		 }
 	 }
 	 
-	 void targetAlly(Champion champion) {
+	public void targetAlly(Champion champion) {
 		 if(champion != null) {
 			 this.ally = champion;
 		 }
@@ -107,8 +109,8 @@ public abstract class Champion {
 
 	public void increaseHP(int hp) {
 		this.health += hp;
-		if(this.health > MAX_HEALTH) {
-			this.health = MAX_HEALTH;
+		if(this.health > maxHP) {
+			this.health = maxHP;
 		}
 	}
 
@@ -118,5 +120,17 @@ public abstract class Champion {
 
 	public void becomeUntargettable() {
 		this.isUntargetable = true;
+	}
+
+	public void becomeInvulnurable() {
+		this.invulnurability = true;
+	}
+
+	public IMagic getMagic(MagicTypes magicType) {
+		IMagic magic = null;
+		if(this.magics.containsKey(magicType)){
+			magic = this.magics.get(magicType);
+		}
+		return magic;
 	}
 }

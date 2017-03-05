@@ -11,7 +11,7 @@ public class IceBlock extends Magic implements IMageMagic, ISelfCastSpells {
 
 	@Override
 	public void affect(Champion target) {
-		target.invulnurability = true;
-		target.isCrowControlled = true;
+		target.becomeInvulnurable();
+		target.crowdControlled();
 	}
 }
