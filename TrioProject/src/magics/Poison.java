@@ -2,7 +2,7 @@ package magics;
 
 import champions.Champion;
 
-public class Poison extends Magic implements IRogueMagic, IEnemySpells{
+public class Poison extends DamageSpells{
 	private static final int POISON_DMG=22;
 
 	public Poison() {
