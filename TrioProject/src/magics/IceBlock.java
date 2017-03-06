@@ -2,16 +2,15 @@ package magics;
 
 import champions.Champion;
 
-public class IceBlock extends Magic implements IMageMagic, ISelfCastSpells {
+public class IceBlock extends Buffs {
 
 	public IceBlock() {
-		super(MagicTypes.ICEBLOCK);
-		
+		super(MagicTypes.ICEBLOCK,0,10000,60000);
 	}
 
 	@Override
 	public void affect(Champion target) {
-		target.becomeInvulnurable();
-		target.crowdControlled();
+		super.affect(target);
+		target.setIsInvulnurable(this.getDuration());
 	}
 }
