@@ -2,19 +2,17 @@ package magics;
 
 import champions.Champion;
 
-public class Intervene extends Magic implements IWarriorMagic, IAllySpells{
+public class Intervene extends CCSpells{
 
-	public static final int INTERVENE_BASE_AMAOUNT = 40;
-	
 	public Intervene() {
-		super(MagicTypes.INTERVENE);
+		super(MagicTypes.INTERVENE,12,4000,12000);
 	}
 
 	@Override
 	public void affect(Champion target) {
-		if(target != null) {
-			target.getShielded(INTERVENE_BASE_AMAOUNT);
-		}
+		super.affect(target);
+		target.silence(this.getDuration());
+		target.reduceHP(this.getDamage());
 	}
 
 

@@ -2,20 +2,14 @@ package magics;
 
 import champions.Champion;
 
-public class ShieldBlock extends Magic implements IWarriorMagic, ISelfCastSpells{
-
-	private static final int SHIELDBLOCK_BASE_AMOUNT = 35;
+public class ShieldBlock extends Buffs{
+	
+	private static final int SHIELDBLOCK_ASBORB = 27;
 
 	public ShieldBlock() {
-		super(MagicTypes.SHIELDBLOCK);
+		super(MagicTypes.SHIELDBLOCK,SHIELDBLOCK_ASBORB,25000,35000);
 		
 	}
-
-	@Override
-	public void affect(Champion target) {
-		if(target != null) {
-			target.getShielded(SHIELDBLOCK_BASE_AMOUNT);
-		}
-	}
+	
 
 }

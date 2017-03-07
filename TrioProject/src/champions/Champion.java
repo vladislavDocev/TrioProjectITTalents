@@ -1,13 +1,8 @@
 package champions;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
-import magics.IAllySpells;
-import magics.IEnemySpells;
-import magics.IMagic;
-import magics.ISelfCastSpells;
-import magics.Magic.MagicTypes;
+import magics.Magic;
 
 public abstract class Champion {
 
@@ -20,18 +15,18 @@ public abstract class Champion {
 	private int energy;
 	private int dmg;
 	private int armor;
-	protected HashMap<MagicTypes, IMagic> magics;
+	protected HashSet<Magic> magics;
 	protected Champion enemy;
 	protected Champion ally;
-	private boolean isUntargetable;
-	private boolean invulnurability;
-	private boolean isCrowControlled;
-	private int maxHP;
+	public boolean invulnurability;
+	public boolean isCrowControlled;
+	private static int MAX_HEALTH;
+	private boolean silenced;
 
 	public Champion(ChampionTypes type, int health, int energy, int dmg, int armor) {
 		this.type = type;
 		if (health > 0) {
-			maxHP = health;
+			MAX_HEALTH = health;
 			this.health = health;
 		}
 		if (energy > 0) {
@@ -45,72 +40,71 @@ public abstract class Champion {
 		}
 		this.invulnurability = false;
 		this.isCrowControlled = false;
-		this.isUntargetable = false;
-		this.magics = new HashMap<>();
+		this.silenced=false;
+		this.magics = new HashSet<>();
 	}
 
 	void attack(Champion ch) {
 		ch.health -= this.dmg;
 	}
 
-	public void castMagic(IMagic magic, Champion target) {
-		 if (!this.isCrowControlled) {
-				if (this.magics.containsKey(magic.getType())) {
-					if (target != null) {
-						if (target.equals(this.enemy)) {
-							if (magic instanceof IEnemySpells) {
-								magic.affect(target);
-							} else {
-								System.out.println("Invalid target");
-							}
-						} else {
-							if (target.equals(this)) {
-								if (magic instanceof ISelfCastSpells) {
-									magic.affect(target);
-								} else {
-									System.out.println("Invalid target");
-								}
-							} else {
-								if (target.equals(this.ally)) {
-									if (magic instanceof IAllySpells) {
-										magic.affect(target);
-									} else {
-										System.out.println("Invalid target");
-									}
-								}
-							}
-						}
-					}
-				}
-			}else{
-				System.out.println("Cannot cast while crowd controlled.");
-			}
-	 }
+	 abstract void castMagic(Magic magic, Champion target);
 	 
-	public void targetEnemy(Champion champion) {
+	 void targetEnemy(Champion champion) {
 		 if(champion != null) {
 			 this.enemy = champion;
 		 }
 	 }
 	 
-	public void targetAlly(Champion champion) {
+	 void targetAlly(Champion champion) {
 		 if(champion != null) {
 			 this.ally = champion;
 		 }
 	 }
 
 	public void reduceHP(int damage) {
-		this.health -= damage;
+		if(this.health-damage>=0) {
+			this.health -= damage;
+		}
+		else {
+			this.health=0;
+		}
+	}
+	public void increaseDamage(int amount,long duration){
+		long currentTime=System.currentTimeMillis();
+		boolean isSet=false;
+		while(currentTime<=currentTime+duration){
+			currentTime=System.currentTimeMillis();
+			if(!isSet) {
+				this.dmg+=amount;
+				isSet=true;
+			}
+		}
+		this.dmg-=amount;
 	}
 
-	public void crowdControlled() {
-		this.isCrowControlled = true;
+	public void crowdControlled(long duration) {
+		long currentTime=System.currentTimeMillis();
+		while(currentTime<=currentTime+duration){
+			currentTime=System.currentTimeMillis();
+			this.isCrowControlled = true;
+		}
+		this.isCrowControlled=false;
+	}
+	public void setIsInvulnurable(long duration) {
+		long currentTime=System.currentTimeMillis();
+		while(currentTime<=currentTime+duration){
+			currentTime=System.currentTimeMillis();
+			this.invulnurability = true;
+		}
+		this.invulnurability=false;
+		
 	}
 
 	public void increaseHP(int hp) {
 		this.health += hp;
-		if(this.health > maxHP) {
-			this.health = maxHP;
+		if(this.health > MAX_HEALTH) {
+			this.health = MAX_HEALTH;
 		}
 	}
 
@@ -118,19 +112,29 @@ public abstract class Champion {
 		this.health += shield;
 	}
 
-	public void becomeUntargettable() {
-		this.isUntargetable = true;
-	}
-
-	public void becomeInvulnurable() {
-		this.invulnurability = true;
-	}
-
-	public IMagic getMagic(MagicTypes magicType) {
-		IMagic magic = null;
-		if(this.magics.containsKey(magicType)){
-			magic = this.magics.get(magicType);
+	public void increaseHP(int damage, long duration) {
+		long currentTime=System.currentTimeMillis();
+		boolean isSet=false;
+		while(currentTime<=currentTime+duration){
+			currentTime=System.currentTimeMillis();
+			if(!isSet) {
+				this.increaseHP(damage);
+				isSet=true;
+			}
 		}
-		return magic;
+		this.reduceHP(damage);
 	}
+
+	public void silence(long duration) {
+		long currentTime=System.currentTimeMillis();
+		boolean isSet=false;
+		while(currentTime<=currentTime+duration){
+			currentTime=System.currentTimeMillis();
+			if(!isSet) {
+				this.silenced=true;
+				isSet=true;
+			}
+		}
+		this.silenced=false;
+		}
 }

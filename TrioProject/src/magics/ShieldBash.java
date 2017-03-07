@@ -2,17 +2,17 @@ package magics;
 
 import champions.Champion;
 
-public class ShieldBash extends Magic implements IWarriorMagic, IEnemySpells{
-	
+public class ShieldBash extends CCSpells{
+
 	public ShieldBash() {
-		super(MagicTypes.SHIELDBASH);
+		super(MagicTypes.SHIELDBASH,8,5000,20000);
 	}
 
 	@Override
 	public void affect(Champion target) {
-		if(target != null) {
-			target.crowdControlled();
-		}
+		super.affect(target);
+		target.silence(this.getDuration());
+		target.reduceHP(this.getDamage());
 	}
 
 

@@ -2,20 +2,14 @@ package magics;
 
 import champions.Champion;
 
-public class PowerShield extends Magic implements IPriestMagic, IAllySpells, ISelfCastSpells {
+public class PowerShield extends Buffs {
 
 	public static final int POWERSHIELD_BASE_AMAOUNT = 40;
 	
 	public PowerShield() {
-		super(MagicTypes.POWERSHIELD );
+		super(MagicTypes.POWERSHIELD,POWERSHIELD_BASE_AMAOUNT,45000,60000);
 		
 	}
 
-	@Override
-	public void affect(Champion target) {
-		if(target != null) {
-			target.getShielded(POWERSHIELD_BASE_AMAOUNT);
-		}
-	}
 	
 }
