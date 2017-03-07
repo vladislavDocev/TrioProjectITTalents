@@ -1,7 +1,7 @@
 package user;
 
-import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import champions.Champion;
@@ -9,7 +9,8 @@ import champions.Champion;
 public class User {
 	
 	Scanner sc = new Scanner(System.in);
-	private static final  String PATTERN_PASSWORD = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+	private static final String PATTERN_PASSWORD = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+	private static final String PATTERN_EMAIL = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
 	
 	private String name;
 	private String userName;
@@ -19,26 +20,40 @@ public class User {
 	private String eMail;
 	private Champion champ;
 	private ArrayList history;
-	private File users;
+	private HashSet<String> userNames;
 	
-	private User(String pass) throws Exception{
+	private User(String pass, String userName, String eMail) throws Exception{
 		if(!pass.matches(PATTERN_PASSWORD)){
 			throw new Exception("Your password is not strong!");
-		}
+		}  
 		else{
 			this.password = pass;
+		}
+		
+		if(!eMail.matches(PATTERN_EMAIL)){
+			throw new Exception("Invalid e-mail!");
+		}
+		else{
+			this.eMail = eMail;		}
+		
+		if(userNames != null){
+			this.userNames = new HashSet<>();
+		}
+		if(!userNames.contains(userName)){
+			throw new Exception("This username is used !");
+		}
+		else{
+			this.userName = userName;
+			this.userNames.add(userName);
 		}
 	}
 	
 	// vijdam konstruktora kato samata registraciq
-	public User(String name, String userName, String pass, String eMail) throws Exception {
-		this(pass);
+	public User(String name,String userName, String pass, String eMail) throws Exception {
+		this(pass,userName, eMail);
 		if(name != null && !name.isEmpty()){
 			this.name = name;
 		}
-		this.users = new File("users.txt");
-		this.eMail = eMail;
-		this.userName = userName;
 		this.id = UNIQUE_ID++;
 	}
 	
