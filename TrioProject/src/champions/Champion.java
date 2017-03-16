@@ -1,8 +1,10 @@
 package champions;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import magics.Magic;
+import magics.Magic.MagicTypes;
 
 public abstract class Champion {
 
@@ -15,7 +17,7 @@ public abstract class Champion {
 	private int energy;
 	private int dmg;
 	private int armor;
-	protected HashSet<Magic> magics;
+	protected HashMap<MagicTypes,Magic> magics;
 	protected Champion enemy;
 	protected Champion ally;
 	public boolean invulnurability;
@@ -41,14 +43,14 @@ public abstract class Champion {
 		this.invulnurability = false;
 		this.isCrowControlled = false;
 		this.silenced=false;
-		this.magics = new HashSet<>();
+		this.magics = new HashMap<>();
 	}
 
 	void attack(Champion ch) {
 		ch.health -= this.dmg;
 	}
 
-	 abstract void castMagic(Magic magic, Champion target);
+	// abstract void castMagic(Magic magic, Champion target);
 	 
 	 void targetEnemy(Champion champion) {
 		 if(champion != null) {

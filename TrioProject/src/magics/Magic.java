@@ -44,4 +44,8 @@ public abstract class Magic {
 	public int getDamage() {
 		return this.damage;
 	}
+	
+	public MagicTypes getType(){
+		return this.type;
+	}
 }

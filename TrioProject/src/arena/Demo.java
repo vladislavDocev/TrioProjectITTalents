@@ -13,8 +13,8 @@ public class Demo {
 		Champion pesho = new Warrior(100,100,20,0);
 		
 		
-		gosho.targetEnemy(pesho);
-		gosho.castMagic(gosho.getMagic(MagicTypes.FIREBALL), pesho);
+		//gosho.targetEnemy(pesho);
+		//gosho.castMagic(gosho.getMagic(MagicTypes.FIREBALL), pesho);
 
 	}
 }
