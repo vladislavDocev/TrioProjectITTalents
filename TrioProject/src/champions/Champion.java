@@ -48,15 +48,15 @@ public abstract class Champion {
 		ch.health -= this.dmg;
 	}
 
-	 abstract void castMagic(Magic magic, Champion target);
+	abstract void castMagic(Magic magic, Champion target);
 	 
-	 void targetEnemy(Champion champion) {
-		 if(champion != null) {
+	public void targetEnemy(Champion champion) {
+		if(champion != null) {
 			 this.enemy = champion;
-		 }
-	 }
+		}
+	}
 	 
-	 void targetAlly(Champion champion) {
+	public void targetAlly(Champion champion) {
 		 if(champion != null) {
 			 this.ally = champion;
 		 }
