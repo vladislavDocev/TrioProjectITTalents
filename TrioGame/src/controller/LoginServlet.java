@@ -16,6 +16,11 @@ import model.dao.UserDAO;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7518504298513100011L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//TODO try to validate login. 

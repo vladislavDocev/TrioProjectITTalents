@@ -3,7 +3,6 @@ package model.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import model.user.User;
@@ -45,7 +44,12 @@ public class UserDAO {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 			ResultSet res = st.executeQuery();
 			while(res.next()){
-				User u = new User(res.getString("name"), res.getString("password"), res.getString("username"));
+				User u = null;
+				try {
+					u = new User(res.getString("name"), res.getString("password"), res.getString("username"), res.getString("email"));
+				} catch (Exception e) {
+					System.out.println("Could not creare user.");
+				}
 				u.setId(res.getLong("id"));
 				allUsers.put(u.getUsername(), u);
 			}

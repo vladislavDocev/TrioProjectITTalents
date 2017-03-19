@@ -16,6 +16,11 @@ import model.user.User;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1190137669743686642L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//add the new user to db
@@ -23,6 +28,7 @@ public class RegisterServlet extends HttpServlet {
 				String name = req.getParameter("name");
 				String pass = req.getParameter("pass");
 				String pass2 = req.getParameter("pass2");
+				String email = req.getParameter("email");
 				
 				
 				//validate data - if user.isEmpty and ....
@@ -31,7 +37,12 @@ public class RegisterServlet extends HttpServlet {
 				String filename = "register.html";
 				if(validData){
 					filename = "index.html";
-					User u = new User(name, user, pass2, eMail);
+					User u = null;
+					try {
+						u = new User(name, user, pass2, email);
+					} catch (Exception e1) {
+						System.out.println("Could not fetch user.");
+					}
 					try {
 						UserDAO.getInstance().addUser(u);
 					} catch (SQLException e) {
