@@ -25,11 +25,12 @@ public class UserDAO {
 	
 	public void addUser(User u) throws SQLException{
 		//TODO insert into DB
-		String sql = "INSERT INTO users (name, username, password) values (?, ?, ?)";
+		String sql = "INSERT INTO users (name, username, password, email) values (?, ?, ?, ?)";
 		PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 		st.setString(1, u.getName());
 		st.setString(2, u.getUsername());
 		st.setString(3, u.getPass());//TODO hash pass
+		st.setString(4, u.getEmail());
 		st.execute();
 		ResultSet res = st.getGeneratedKeys();
 		res.next();
@@ -40,7 +41,7 @@ public class UserDAO {
 	
 	public HashMap<String, User> getAllUsers() throws SQLException{
 		if(allUsers.isEmpty()){
-			String sql = "SELECT id, name, username, password FROM users;";
+			String sql = "SELECT user_id, name, username, password FROM users;";
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(sql);
 			ResultSet res = st.executeQuery();
 			while(res.next()){
