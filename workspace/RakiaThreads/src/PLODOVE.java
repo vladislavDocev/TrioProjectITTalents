@@ -1,0 +1,4 @@
+
+public enum PLODOVE {
+	 GROZDE,SLIVI,KAISII
+}
