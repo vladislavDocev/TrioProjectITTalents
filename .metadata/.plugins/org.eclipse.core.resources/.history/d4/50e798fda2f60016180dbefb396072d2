@@ -1,9 +1,0 @@
-package immigrants;
-
-public class Automat extends Weapon {
-
-	public Automat(int i, int nextInt) {
-		// TODO Auto-generated constructor stub
-	}
-
-}

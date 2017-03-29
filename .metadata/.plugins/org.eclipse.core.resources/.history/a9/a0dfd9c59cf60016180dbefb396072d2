@@ -1,5 +1,0 @@
-package immigrants;
-
-public class Extremist extends Immigrant {
-
-}

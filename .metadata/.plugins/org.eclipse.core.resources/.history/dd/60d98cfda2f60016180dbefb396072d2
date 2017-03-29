@@ -1,9 +1,0 @@
-package immigrants;
-
-public class Pistol extends Weapon {
-
-	public Pistol(int i, int nextInt) {
-		super();
-	}
-
-}

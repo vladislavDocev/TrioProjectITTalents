@@ -1,5 +1,0 @@
-package immigrants;
-
-public class SpecOfficer extends Police {
-
-}
