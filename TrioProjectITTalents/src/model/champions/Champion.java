@@ -16,7 +16,6 @@ public abstract class Champion {
 	private int health;
 	private int energy;
 	private int dmg;
-	private int armor;
 	protected HashMap<MagicTypes,Magic> magics;
 	protected Champion enemy;
 	protected Champion ally;
@@ -25,7 +24,7 @@ public abstract class Champion {
 	private static int MAX_HEALTH;
 	private boolean silenced;
 
-	public Champion(ChampionTypes type, int health, int energy, int dmg, int armor) {
+	public Champion(ChampionTypes type, int health, int energy, int dmg) {
 		this.type = type;
 		if (health > 0) {
 			MAX_HEALTH = health;
@@ -36,9 +35,6 @@ public abstract class Champion {
 		}
 		if (dmg > 0) {
 			this.dmg = dmg;
-		}
-		if (armor > 0) {
-			this.armor = armor;
 		}
 		this.invulnurability = false;
 		this.isCrowControlled = false;

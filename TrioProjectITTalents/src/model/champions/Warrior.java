@@ -8,8 +8,8 @@ import model.magics.ShieldBlock;
 
 public class Warrior extends Champion{
 
-	public Warrior(int health, int energy, int dmg, int armor) {
-		super(ChampionTypes.WARRIOR, health, energy, dmg, armor);
+	public Warrior(int health, int energy, int dmg) {
+		super(ChampionTypes.WARRIOR, health, energy, dmg);
 		
 		ShieldBash sb = new ShieldBash();
 		HeroicStrike hs = new HeroicStrike();

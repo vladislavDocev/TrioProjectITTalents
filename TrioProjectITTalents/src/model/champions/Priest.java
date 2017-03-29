@@ -8,8 +8,8 @@ import model.magics.Renew;
 
 public class Priest extends Champion{
 
-	public Priest(int health, int energy, int dmg, int armor) {
-		super(ChampionTypes.PRIEST, health, energy, dmg, armor);
+	public Priest(int health, int energy, int dmg) {
+		super(ChampionTypes.PRIEST, health, energy, dmg);
 		
 		PowerShield ps = new PowerShield();
 		Heal h = new Heal();

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.UserDAO;
+import model.user.User;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -15,6 +16,7 @@ public class ProfileServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//UserDAO.getInstance();
+		
 	}
 
 }

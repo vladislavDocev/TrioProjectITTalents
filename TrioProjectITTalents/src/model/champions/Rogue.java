@@ -8,8 +8,8 @@ import model.magics.Vanish;
 
 public class Rogue extends Champion{
 
-	public Rogue(int health, int energy, int dmg, int armor) {
-		super(ChampionTypes.ROGUE, health, energy, dmg, armor);
+	public Rogue(int health, int energy, int dmg) {
+		super(ChampionTypes.ROGUE, health, energy, dmg);
 		
 		BackStab bs = new BackStab(); 
 		Vanish v = new Vanish();

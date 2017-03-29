@@ -63,7 +63,6 @@ public class UserDAO {
 				allUsers.put(u.getUsername(), u);
 			}
 		}
-		System.out.println(allUsers);
 		return allUsers;
 	}
 

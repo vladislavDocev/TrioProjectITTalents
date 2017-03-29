@@ -12,8 +12,8 @@ import model.magics.Polymorph;
 
 public class Mage extends Champion {
 
-	public Mage(int health, int energy, int dmg, int armor) {
-		super(ChampionTypes.MAGE, health, energy, dmg, armor);
+	public Mage(int health, int energy, int dmg) {
+		super(ChampionTypes.MAGE, health, energy, dmg);
 
 		FireBall f = new FireBall();
 		FrostBolt fb = new FrostBolt();
