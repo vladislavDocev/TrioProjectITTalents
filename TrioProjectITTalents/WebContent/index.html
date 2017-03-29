@@ -6,7 +6,7 @@
 <meta name="description" content="ArenaMasters">
 <meta name="keywords" content="ArenaMasters">
 <meta name="revisit-after" content="15 days">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow">	
 <title>ArenaMasters/</title>
 <link type="text/css" rel="stylesheet" href="css/un.css">
 <script type="text/javascript" src="javascript/jquery-1.js"></script>
@@ -14,6 +14,12 @@
 <style type="text/css"></style></head>
 
 <body>
+<!--  <audio controls autoplay>
+		<source src="diablo.mp3"  type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+-->
+<embed src="diablo.mp3" autostart="true" loop="true" hidden="true">
 
 <div id="mainbox">
    <div class="top1"></div>
@@ -28,19 +34,30 @@
    <div class="top10"></div>
    <div class="top11"></div>
    <div class="menu">
-     <table height="72" width="960" align="center" border="0" cellpadding="0" cellspacing="0">
-       <tbody><tr align="center">
+     <table height="72" width="432" align="left" border="0" cellpadding="1" cellspacing="1">
+       <tbody><tr align="left">
          <td class="f1" height="72" width="9">&nbsp;</td>
-         <td class="f1" width="86"><a href="http://dispersion.info/">Home</a></td>
-         <td class="f1" width="86"><a href="http://dispersion.info/?page=register">Register</a></td>
-         <td class="f1" width="86"><a href="#">Donation</a></td>
-         <td class="f1" width="83"><a href="http://dispersion.info/?page=vote">Vote</a></td>
-         <td class="f1" width="84"><a href="#">Account</a></td>
-         <td class="f1" width="86"><a href="#">Contact</a></td>
-         <td class="f1" width="86"><a href="#">Downloads</a></td>
-         <td class="f1" width="84"><a href="http://dispersion.info/forums/">Forums</a></td>
-         <td class="f1" width="88"><a href="#">Message</a></td>
-         <td valign="bottom" width="182"></td>
+         <td class="f1" width="86" align="center">
+         <form action="register" method="post" >
+      <a href="#" onclick="document.forms[0].submit();return false;">Home</a>
+        </form>  
+         </td>
+         <td class="f1" width="86" align="center">
+         <form action="play" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Play</a>
+        </form>  
+         </td>
+         <td class="f1" width="86" align="center">
+         <form action="profile" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Profile</a>
+        </form>  
+         </td>
+        <td class="f1" width="86" align="center">
+         <form action="statistics" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Statistics</a>
+        </form>  
+         </td>
+          <td valign="bottom" width="182"></td>
        </tr>
      </tbody></table>
    </div>
@@ -48,7 +65,7 @@
 
   <script type="text/javascript" src="javascript/cal_down.js"></script>
  <div class="b_l">
-        <div class="l_1"><div class="a1">Latest Announcement</div><div class="m1"><a href="#">more&gt;&gt;</a></div></div>
+        <div class="l_1"><div class="a1">Latest Announcement</div><div class="m1"></div></div>
 <div class="l_2">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tbody><tr>
@@ -151,7 +168,6 @@ Arena Masters is a free to play Web Browser game <br><br>
       </tr>
       <tr>
         <td height="40" align="center"><input name="action" value="dologin" type="hidden"><input name="Submit" class="button" value="" type="submit"></td>
-        <td><a href="http://dispersion.info/?page=forgot" class="STYLE1" style="padding-left: 10px;"> Forgot your password? </a></td>
       </tr>
     </tbody></table>
   </form></td>

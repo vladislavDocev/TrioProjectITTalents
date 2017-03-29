@@ -29,19 +29,30 @@
    <div class="top10"></div>
    <div class="top11"></div>
    <div class="menu">
-     <table height="72" width="960" align="center" border="0" cellpadding="0" cellspacing="0">
-       <tbody><tr align="center">
+   <table height="72" width="432" align="left" border="0" cellpadding="1" cellspacing="1">
+       <tbody><tr align="left">
          <td class="f1" height="72" width="9">&nbsp;</td>
-         <td class="f1" width="86"><a href="http://dispersion.info/">Home</a></td>
-         <td class="f1" width="86"><a href="http://dispersion.info/?page=register">Register</a></td>
-         <td class="f1" width="86"><a href="#">Donation</a></td>
-         <td class="f1" width="83"><a href="http://dispersion.info/?page=vote">Vote</a></td>
-         <td class="f1" width="84"><a href="#">Account</a></td>
-         <td class="f1" width="86"><a href="#">Contact</a></td>
-         <td class="f1" width="86"><a href="#">Downloads</a></td>
-         <td class="f1" width="84"><a href="http://dispersion.info/forums/">Forums</a></td>
-         <td class="f1" width="88"><a href="#">Message</a></td>
-         <td valign="bottom" width="182"></td>
+         <td class="f1" width="86" align="center">
+         <form action="register" method="post" >
+      <a href="#" onclick="document.forms[0].submit();return false;">Home</a>
+        </form>  
+         </td>
+         <td class="f1" width="86" align="center">
+         <form action="play" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Play</a>
+        </form>  
+         </td>
+         <td class="f1" width="86" align="center">
+         <form action="profile" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Profile</a>
+        </form>  
+         </td>
+        <td class="f1" width="86" align="center">
+         <form action="statistics" method="post">
+      <a href="#" onclick="document.forms[0].submit();return false;">Statistics</a>
+        </form>  
+         </td>
+          <td valign="bottom" width="182"></td>
        </tr>
      </tbody></table>
    </div>
@@ -163,18 +174,11 @@ Arena Masters is a free to play Web Browser game <br><br>
         <td class="STYLE2" height="20" valign="middle" width="33%" align="center">Enter Your E-Mail: </td>
         <td width="67%"><input name="email" id="email" class="inputbox" alt="email" size="28" type="text"></td>
       </tr>
-      <tr>
-        <td height="20" align="center"><input name="action" value="dologin" type="hidden"><input name="Submit" class="button" value="" type="submit"></td>
-        <td><a href="http://dispersion.info/?page=forgot" class="STYLE1" style="padding-left: 10px;"> Forgot your password? </a></td>
-      </tr>
-    
     </tbody></table>
   </form></td>
     
              </tbody></table>
         </div>
-               
-        <br></br>
          <br></br>
           
           <form action="register" method="post">

@@ -103,6 +103,17 @@ input, select, textarea, .inputbox {
  	
 	vertical-align: middle;
 }
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:#0000EE;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
 .inputbox, input#image, input#url {
 	border: 1px solid #2a2a2a;
 	color: #000;
@@ -155,7 +166,7 @@ h1{color:#000; font-family:"microsoft yahei"; font-weight:normal;}
 	width:124px;
 }
 
-/*==========以下部分是必须的===========*/
+/*==========д»Ґдё‹йѓЁе€†ж�Їеї…йЎ»зљ„===========*/
 .Validform_checktip{
 	margin-left:0px;
 	line-height:20px;
