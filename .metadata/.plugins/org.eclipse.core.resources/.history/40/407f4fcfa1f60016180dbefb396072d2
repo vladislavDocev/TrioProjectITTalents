@@ -1,0 +1,15 @@
+package immigrants;
+
+import java.util.ArrayList;
+
+public class Radical extends Immigrant {
+	
+	private Passport p;
+	private ArrayList<Weapon> weapons;
+
+	public Radical(String string, int nextInt) {
+		super(string,nextInt);
+		this.weapons = new ArrayList<Weapon>();
+	}
+
+}

@@ -1,0 +1,50 @@
+package homeWork5;
+
+import java.util.Scanner;
+
+public class Task7 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter sentence:");
+		String string1 = sc.nextLine();
+		String string2 = null;
+		int nextElement = string1.indexOf(' ');
+		int br = 1;
+		int maxLength = 0;
+		
+		for (int i = 0; i < string1.length(); i++) {
+			if(i==0) {
+				string2=string1.substring(0, nextElement);
+				br++;
+				
+				maxLength=string2.length();
+				}
+			else {
+				if(nextElement!=string1.lastIndexOf(' ',nextElement)) {
+				string2=string1.substring(nextElement+1,string1.indexOf(' ',nextElement+1));
+				nextElement=string1.indexOf(' ', nextElement+1);
+				System.out.println(string2);
+				br++;
+				if(string2.length()>maxLength) {
+					maxLength=string2.length();
+				}
+				
+				}
+				else {
+					string2=string1.substring(nextElement+1);
+					br++;
+					System.out.println(string2);
+					System.out.println(string2.length());
+					if(string2.length()>maxLength) {
+						maxLength=string2.length();
+					}
+					break;
+				}
+			}
+		}
+		System.out.println(br + " Max length is: " + maxLength);
+
+	}
+
+}

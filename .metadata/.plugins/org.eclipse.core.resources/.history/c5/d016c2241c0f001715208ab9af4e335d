@@ -1,0 +1,8 @@
+
+public class Kazan {
+	
+	public enum PLODOVE { GROZDE,SLIVI,KAISII };
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package immigrants;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		//Country country = new Country("England",5);
+		
+		System.out.println(25.0/100.0);
+
+	}
+
+}

@@ -1,0 +1,15 @@
+package immigrants;
+
+public class Automat extends Weapon {
+
+	public Automat(int i, int nextInt) {
+		super(i,nextInt);
+	}
+
+	@Override
+	public void fireWeapon() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

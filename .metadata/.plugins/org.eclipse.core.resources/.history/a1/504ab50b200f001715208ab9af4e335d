@@ -1,0 +1,25 @@
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		Kazan kazan = new Kazan();
+		Berach berach1 = new Berach("Berach1",100,kazan);
+		Berach berach2 = new Berach("Berach2",100,kazan);
+		Berach berach3 = new Berach("Berach3",100,kazan);
+		Berach berach4 = new Berach("Berach4",100,kazan);
+		Berach berach5 = new Berach("Berach5",100,kazan);
+		Berach berach6 = new Berach("Berach6",100,kazan);
+		Berach berach7 = new Berach("Berach7",100,kazan);
+		Pravesht pravesht = new Pravesht("Pravesht",100,kazan);
+		new Thread(berach1).start();
+		new Thread(berach2).start();
+		new Thread(berach3).start();
+		new Thread(berach4).start();
+		new Thread(berach5).start();
+		new Thread(berach6).start();
+		new Thread(berach7).start();
+		new Thread(pravesht).start();
+	}
+
+}

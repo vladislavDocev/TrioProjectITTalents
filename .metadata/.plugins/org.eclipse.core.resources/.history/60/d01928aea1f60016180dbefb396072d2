@@ -1,0 +1,9 @@
+package immigrants;
+
+public class Extremist extends Immigrant {
+
+	public Extremist(String string, int nextInt) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

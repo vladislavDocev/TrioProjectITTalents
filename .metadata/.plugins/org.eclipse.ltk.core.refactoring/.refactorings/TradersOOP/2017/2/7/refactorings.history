@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;traders.TradeObject&apos; to &apos;TradePlace&apos;&#x0D;&#x0A;- Original project: &apos;TradersOOP&apos;&#x0D;&#x0A;- Original element: &apos;traders.TradeObject&apos;&#x0D;&#x0A;- Renamed element: &apos;traders.TradePlace&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TradeObject&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;traders{TradeObject.java[TradeObject" matchStrategy="1" name="TradePlace" qualified="false" references="true" similarDeclarations="false" stamp="1487070303787" textual="false" version="1.0"/>
+</session>

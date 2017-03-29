@@ -1,0 +1,10 @@
+
+public class Pravesht extends Person {
+	
+	private PLODOVE typeRakia;
+
+	public Pravesht(String name, int age) {
+		super(name, age);
+	}
+
+}

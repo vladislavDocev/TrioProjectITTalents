@@ -1,0 +1,14 @@
+package immigrants;
+
+import java.util.ArrayList;
+
+public class Extremist extends Immigrant {
+	
+	private ArrayList<Weapon> weapons;
+	
+	public Extremist(String string, int nextInt) {
+		super(string,nextInt);
+		this.weapons = new ArrayList<Weapon>();
+	}
+
+}

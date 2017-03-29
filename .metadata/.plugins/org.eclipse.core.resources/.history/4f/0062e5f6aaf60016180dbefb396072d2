@@ -1,0 +1,33 @@
+package immigrants;
+
+import java.util.ArrayList;
+
+public class Radical extends Immigrant {
+	
+	private Passport p;
+	private ArrayList<Weapon> weapons;
+
+	public Radical(String string, int nextInt) {
+		super(string,nextInt);
+		this.weapons = new ArrayList<Weapon>();
+	}
+	
+	public void setPassport(Passport p) {
+		this.p=p;
+	}
+
+	@Override
+	public void buyWeapon(Weapon weapon) throws Exception {
+		if(this.getMoney()>=weapon.getPrice()) {
+			this.weapons.add(weapon);
+			System.out.println(this.getName() + " successfully buys weapon " + weapon);
+		}
+		else {
+			this.getCity().remove(this);
+			throw new Exception("Immigrant dies from anger and leaves newWave of Immigrants");
+		}
+		
+	}
+
+
+}

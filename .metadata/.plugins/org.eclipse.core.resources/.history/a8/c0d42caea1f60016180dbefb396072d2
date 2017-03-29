@@ -1,0 +1,9 @@
+package immigrants;
+
+public class Country {
+
+	public Country(String string, int i) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

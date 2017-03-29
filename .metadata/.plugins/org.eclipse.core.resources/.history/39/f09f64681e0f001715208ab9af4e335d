@@ -1,0 +1,10 @@
+
+public class Berach extends Person {
+	
+	private PLODOVE typePlod;
+
+	public Berach(String name, int age) {
+		super(name, age);
+	}
+
+}

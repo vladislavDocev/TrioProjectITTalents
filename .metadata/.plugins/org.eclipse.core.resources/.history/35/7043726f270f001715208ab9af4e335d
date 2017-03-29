@@ -1,0 +1,21 @@
+import java.util.Random;
+
+public class Pravesht extends Person implements Runnable{
+	
+	private Kazan kazan;
+
+	public Pravesht(String name, int age,Kazan kazan) {
+		super(name, age);
+		this.kazan = kazan;
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			kazan.variRakia();
+			int kolkoSvariha = new Random().nextInt(10)+1;
+			System.out.println(this.getName() + " svari " + kolkoSvariha + " kg rakia ot " + kazan.getTypeRakia() );
+		}
+	}
+
+}

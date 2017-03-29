@@ -1,0 +1,57 @@
+package immigrants;
+
+import immigrants.City.CityNames;
+
+import java.util.ArrayList;
+
+public abstract class Immigrant {
+	public enum SomeNames { 
+		IVAN("IVAN"),
+		GOSHO("GOSHO"),
+		VOLIO("VOLIO"),
+		TARIKATIMMIGRANT("TARIKATIMMIGRANT"),
+		IMMIGRANTCHE("IMMIGRANTCHE");
+		
+		private String name;
+		SomeNames(String s) {
+			this.name=s;
+		}
+		public String toString() {
+			return this.name;
+		}
+	}
+	
+	private String name;
+	private int money;
+	private City city;
+	private Country country;
+	private ArrayList<Immigrant> relatives;
+	
+	public Immigrant(String name, int money) {
+		this.name = name;
+		this.money = money;
+		this.city=new City(CityNames.values()[0].toString(),5000);
+		this.country=new Country("Pakistan",city);
+	}
+
+	public abstract void buyWeapon(Weapon weapon) throws Exception;
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setRelative(Immigrant i) {
+		this.relatives.add(i);
+	}
+	
+	public City getCity() {
+		return this.city;
+	}
+	public Country getCountry() {
+		return this.country;
+	}
+	public int getMoney() {
+		return this.money;
+	}
+
+}

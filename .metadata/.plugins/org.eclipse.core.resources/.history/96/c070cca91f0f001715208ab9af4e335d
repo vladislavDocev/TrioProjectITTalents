@@ -1,0 +1,13 @@
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		Kazan kazan = new Kazan();
+		Berach berach1 = new Berach("Berach",100,kazan);
+		Pravesht pravesht = new Pravesht("Pravesht",100,kazan);
+		new Thread(berach1).start();
+		new Thread(pravesht).start();
+	}
+
+}

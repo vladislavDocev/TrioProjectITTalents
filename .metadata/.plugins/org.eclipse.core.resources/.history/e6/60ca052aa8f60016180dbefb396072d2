@@ -1,0 +1,52 @@
+package immigrants;
+
+import java.util.ArrayList;
+
+public class City {
+	
+	public enum CityNames {
+		BANGLADESH("BANGLADESH"),
+		LONDON("LONDON"),
+		BIRMINGHAM("BIRMINGHAM"),
+		CHELSEA("CHELSEA"),
+		MANCHESTER("MANCHESTER"),
+		TOTTENHAM("TOTTENHAM");
+		
+		private String name;
+		CityNames(String s) {
+			this.name=s;
+		}
+		public String toString() {
+			return this.name;
+		}
+	}
+	
+	private String name;
+	private int population;
+	private ArrayList<Police> polices;
+	private ArrayList<Immigrant> immigrants;
+	
+
+	public City(String string,int population) {
+		this.name = string;
+		this.population=population;
+		this.polices = new ArrayList<Police>();
+		this.immigrants=new ArrayList<Immigrant>();
+	}
+	
+	public void moveTo(Immigrant i) {
+		this.immigrants.add(i);
+		this.population++;
+	}
+	public void remove(Immigrant i) {
+		this.immigrants.remove(i);
+		this.population--;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Country c = (Country) obj;
+		return this.name.equals(c.name);
+	}
+
+}

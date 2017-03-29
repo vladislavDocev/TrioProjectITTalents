@@ -1,0 +1,15 @@
+package immigrants;
+
+public abstract class Weapon {
+	
+	private int price;
+	private int quantity;
+	
+	public Weapon(int price,int quantity){
+		this.price=price;
+		this.quantity=quantity;
+	}
+	
+	public abstract void fireWeapon();
+
+}

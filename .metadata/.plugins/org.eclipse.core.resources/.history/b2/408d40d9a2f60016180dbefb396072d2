@@ -1,0 +1,9 @@
+package immigrants;
+
+public class Weapon {
+	
+	private int price;
+	private int quantity;
+	
+
+}
