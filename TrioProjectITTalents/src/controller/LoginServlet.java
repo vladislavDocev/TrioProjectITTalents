@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.dao.DBManager;
 import model.dao.UserDAO;
+import model.user.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -32,7 +34,9 @@ public class LoginServlet extends HttpServlet {
 		try {
 			if (UserDAO.getInstance().validLogin(user, pass)) {
 				fileName = "main.html";
-				session.setAttribute("user", user);
+				HashMap<String, User> users = UserDAO.getInstance().getAllUsers();
+				User u = users.get(user);
+				session.setAttribute("user", u);
 				session.setAttribute("logged", true);
 			} else {
 				fileName = "loginFailed.html";
