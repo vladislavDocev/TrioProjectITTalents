@@ -56,7 +56,7 @@
                     <% Champion champ1 = ChampionDAO.getInstance().getMage();//new Mage((new Random().nextInt(70)+50),100,15); %>
                     <td><% User u =((User)session.getAttribute("user")); 
                     u.getChamp().targetEnemy(champ1);
-                    out.print(u);
+                    out.print(u.getName() + "   ");
                     out.print("HP: " + champ1.getHealth() + " ENERGY: " + champ1.getEnergy());
                     %></td>
                     <td>Your current Target is <%= u.getChamp().getEnemyName() %></td>
