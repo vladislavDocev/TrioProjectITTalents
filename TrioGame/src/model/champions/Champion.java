@@ -149,4 +149,12 @@ public abstract class Champion {
 		}
 		this.silenced=false;
 		}
+	
+	public int getHealth() {
+		return health;
+	}
+	
+	public int getEnergy() {
+		return energy;
+	}
 }

@@ -1,3 +1,4 @@
+<%@page import="model.dao.ChampionDAO"%>
 <%@page import="model.champions.Priest"%>
 <%@page import="model.champions.Warrior"%>
 <%@page import="java.util.Random"%>
@@ -52,10 +53,12 @@
                   <table class="n_bg" height="38" width="603" align="center" border="0" cellpadding="0" cellspacing="0">
                   <tbody><tr onclick="ShowOrHiden(0);">
                     <td style="padding: 1px 0px 0px 1px;" width="60">&nbsp;</td>
-                    <% Champion champ1 = new Mage((new Random().nextInt(70)+50),100,15); %>
+                    <% Champion champ1 = ChampionDAO.getInstance().getMage();//new Mage((new Random().nextInt(70)+50),100,15); %>
                     <td><% User u =((User)session.getAttribute("user")); 
                     u.getChamp().targetEnemy(champ1);
-                    out.print(u);%></td>
+                    out.print(u);
+                    out.print("HP: " + champ1.getHealth() + " ENERGY: " + champ1.getEnergy());
+                    %></td>
                     <td>Your current Target is <%= u.getChamp().getEnemyName() %></td>
                   </tr>
                 </tbody></table>
@@ -77,7 +80,8 @@
     <table class="n_bg" height="38" width="603" align="center" border="0" cellpadding="0" cellspacing="0">
                   <tbody><tr onclick="ShowOrHiden(0);">
                     <td style="padding: 1px 0px 0px 1px;" width="60">&nbsp;</td>
-                    <td>Player 2</td>
+                    <td>Player 2     <%
+                    out.print("   HP: " + champ1.getHealth() + " ENERGY: " + champ1.getEnergy()); %></td>
                   </tr>
                 </tbody></table>
    <div name="content_id0" id="content_id0" class="style7">
@@ -98,7 +102,11 @@
     <table class="n_bg" height="38" width="603" align="center" border="0" cellpadding="0" cellspacing="0">
                   <tbody><tr onclick="ShowOrHiden(0);">
                     <td style="padding: 1px 0px 0px 1px;" width="60">&nbsp;</td>
-                    <td>Player 3</td>
+                    <td>Player 3
+                     <% Champion champ2 = ChampionDAO.getInstance().getWarrior();//new Warrior((new Random().nextInt(70)+50),100,15); %>
+                         
+                    <%
+                    out.print("   HP: " + champ2.getHealth() + " ENERGY: " + champ2.getEnergy()); %></td>
                   </tr>
                 </tbody></table>
    <div name="content_id0" id="content_id0" class="style7">
@@ -107,8 +115,7 @@
                       <td height="64" width="30" align="center">&nbsp;</td>
                       <td width="594"><table width="99%" border="0" cellpadding="0" cellspacing="0">
                           <tbody>
-                            <% Champion champ2 = new Warrior((new Random().nextInt(70)+50),100,15); %>
-                           <%  HashMap<MagicTypes,Magic> magics2 = champ2.getMagics();
+                          <%  HashMap<MagicTypes,Magic> magics2 = champ2.getMagics();
                             for(Map.Entry<MagicTypes,Magic> e : magics2.entrySet()) {%>
                             	<td> <input type = "image" src="images/<%= e.getValue().getName() %>.png" value="<%=e.getValue().getName() %>" style="width:150px;" ></input></td>
                             <%}
@@ -121,7 +128,11 @@
   <table class="n_bg" height="38" width="603" align="center" border="0" cellpadding="0" cellspacing="0">
                   <tbody><tr onclick="ShowOrHiden(0);">
                     <td style="padding: 1px 0px 0px 1px;" width="60">&nbsp;</td>
-                    <td>Player 4</td>
+                    <td>Player 4
+                     <% Champion champ3 = ChampionDAO.getInstance().getPriest();//new Priest((new Random().nextInt(70)+50),100,15); %>
+                   
+                    <%
+                    out.print("   HP: " + champ3.getHealth() + " ENERGY: " + champ3.getEnergy()); %></td>
                   </tr>
                 </tbody></table>
    <div name="content_id0" id="content_id0" class="style7">
@@ -130,8 +141,7 @@
                       <td height="64" width="30" align="center">&nbsp;</td>
                       <td width="594"><table width="99%" border="0" cellpadding="0" cellspacing="0">
                           <tbody>
-                          <% Champion champ3 = new Priest((new Random().nextInt(70)+50),100,15); %>
-                           <%  HashMap<MagicTypes,Magic> magics3 = champ3.getMagics();
+                                 <%  HashMap<MagicTypes,Magic> magics3 = champ3.getMagics();
                             for(Map.Entry<MagicTypes,Magic> e : magics3.entrySet()) {%>
                             	<td> <input type = "image" src="images/<%= e.getValue().getName() %>.png" value="<%=e.getValue().getName() %>" style="width:150px;" ></input></td>
                             <%}
